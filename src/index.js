@@ -5,15 +5,16 @@ const jcampconverter = require('jcampconverter');
 const getSpectrumType = require('./getSpectrumType');
 
 /**
- * @typedef NMRMetadata
- * @type Object
+ * Object containing parsed metadata
+ * @name NMRMetadata
+ * @typedef {object} NMRMetadata
  * @property {number} dimension
  * @property {number[]} nucleus
  * @property {string} title
  * @property {string} solvent
  * @property {string} pulse
  * @property {string} experiment
- * @property {number} temperature - Temperature in K
+ * @property {number} temperature - Temperature in Kelvin
  * @property {number} frequency
  * @property {string} date - Date in ISO string format
  */
