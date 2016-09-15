@@ -1,0 +1,12 @@
+##TITLE=Alpha Ionone
+C13H20O in CDCl3
+##JCAMPDX= 6.0         $$ Bruker NMR JCAMP-DX V2.0
+##DATA TYPE= NMR FID
+##DATA CLASS= NTUPLES
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ 1.83.2.2 TOPSPIN		Version 3.2
+$$ 2016-04-20 14:32:19.568 -0500  darmn@msy
+$$ Compression mode = diff/dup
+##.OBSERVE FREQUENCY= 400.13186997
+##.OBSERVE NUCLEUS= ^1H

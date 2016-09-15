@@ -32,7 +32,9 @@ exports.parseJcamp = function (jcampData) {
 
     const metadata = {
         dimension: jcamp.twoD ? 2 : 1,
-        nucleus: []
+        nucleus: [],
+        isFid: false,
+        isFt: false
     };
 
     const info = jcamp.info;
@@ -42,6 +44,15 @@ exports.parseJcamp = function (jcampData) {
     maybeAdd(metadata, 'experiment', getSpectrumType(metadata.pulse));
     maybeAdd(metadata, 'temperature', parseFloat(info['$TE'] || info['.TE']));
     maybeAdd(metadata, 'frequency', parseFloat(info['.OBSERVEFREQUENCY']));
+    maybeAdd(metadata, 'type', info['DATATYPE']);
+
+    if(metadata.type){
+        if(metadata.type.toUpperCase().indexOf("FID") >= 0)
+            metadata.isFid = true;
+        else if(metadata.type.toUpperCase().indexOf("SPECTRUM") >= 0 ){
+            metadata.isFt = true;
+        }
+    }
 
     if (metadata.dimension === 1) {
         const nucleus = info['.OBSERVENUCLEUS'];
