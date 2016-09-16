@@ -47,9 +47,9 @@ exports.parseJcamp = function (jcampData) {
     maybeAdd(metadata, 'type', info['DATATYPE']);
 
     if(metadata.type){
-        if(metadata.type.toUpperCase().indexOf("FID") >= 0)
+        if(metadata.type.toUpperCase().indexOf('FID') >= 0)
             metadata.isFid = true;
-        else if(metadata.type.toUpperCase().indexOf("SPECTRUM") >= 0 ){
+        else if(metadata.type.toUpperCase().indexOf('SPECTRUM') >= 0 ){
             metadata.isFt = true;
         }
     }
