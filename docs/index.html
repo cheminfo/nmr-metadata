@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>nmr-metadata 1.1.0 | Documentation</title>
+  <title>nmr-metadata 1.2.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>nmr-metadata</h3>
-          <div class='mb1'><code>1.1.0</code></div>
+          <div class='mb1'><code>1.2.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -25,19 +25,9 @@
               
                 
                 <li><a
-                  href='#nmrmetadata'
+                  href='#getspectrumtype'
                   class="">
-                  NMRMetadata
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#parsejcamp'
-                  class="">
-                  parseJcamp
+                  getSpectrumType
                   
                 </a>
                 
@@ -55,9 +45,19 @@
               
                 
                 <li><a
-                  href='#getspectrumtype'
+                  href='#parsejcamp'
                   class="">
-                  getSpectrumType
+                  parseJcamp
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#nmrmetadata'
+                  class="">
+                  NMRMetadata
                   
                 </a>
                 
@@ -77,11 +77,263 @@
 
   
   <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getspectrumtype'>
+      getSpectrumType
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1ae0af89b403c21d8c6880cdcad9e94271f231d5/src/getSpectrumType.js#L8-L60'>
+      <span>src/getSpectrumType.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns an experiment string based on a pulse sequence</p>
+
+
+  <div class='pre p1 fill-light mt0'>getSpectrumType(pulse: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pulse</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> 
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getnucleusfrom2dexperiment'>
+      getNucleusFrom2DExperiment
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1ae0af89b403c21d8c6880cdcad9e94271f231d5/src/index.js#L121-L133'>
+      <span>src/index.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns a list of nuclei based on an experiment string</p>
+
+
+  <div class='pre p1 fill-light mt0'>getNucleusFrom2DExperiment(experiment: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>experiment</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> 
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='parsejcamp'>
+      parseJcamp
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1ae0af89b403c21d8c6880cdcad9e94271f231d5/src/index.js#L47-L114'>
+      <span>src/index.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns a metadata object from JCAMP</p>
+
+
+  <div class='pre p1 fill-light mt0'>parseJcamp(jcampData: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>]): <a href="#nmrmetadata">NMRMetadata</a></div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>jcampData</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> 
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>])</code> 
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.computeRanges</span> <code class='quiet'>[<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>]</code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.nH</span> <code class='quiet'>[<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>]</code>
+                  
+                    (default <code>100</code>)
+                  </td>
+                  <td class='break-word'><span>number of hydrogens to take into account for ranges computation
+</span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#nmrmetadata">NMRMetadata</a></code>:
+        metadata
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='nmrmetadata'>
       NMRMetadata
     </h3>
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1d70929e17c9bb2b40401ce8cc806adbba4c7a1d/src/index.js#L27-L77'>
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1ae0af89b403c21d8c6880cdcad9e94271f231d5/src/index.js#L24-L26'>
       <span>src/index.js</span>
       </a>
     
@@ -114,7 +366,7 @@
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>nucleus</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>&gt;)</code>
+          <span class='code bold'>nucleus</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
           
           
         </div>
@@ -163,211 +415,15 @@
           
         </div>
       
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='parsejcamp'>
-      parseJcamp
-    </h3>
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1d70929e17c9bb2b40401ce8cc806adbba4c7a1d/src/index.js#L27-L77'>
-      <span>src/index.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Returns a metadata object from JCAMP</p>
-
-
-  <div class='pre p1 fill-light mt0'>parseJcamp(jcampData: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#nmrmetadata">NMRMetadata</a></div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
         <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>jcampData</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> 
-          </div>
+          <span class='code bold'>ranges</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+          
           
         </div>
       
     </div>
   
 
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#nmrmetadata">NMRMetadata</a></code>:
-        metadata
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='getnucleusfrom2dexperiment'>
-      getNucleusFrom2DExperiment
-    </h3>
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1d70929e17c9bb2b40401ce8cc806adbba4c7a1d/src/index.js#L84-L96'>
-      <span>src/index.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Returns a list of nuclei based on an experiment string</p>
-
-
-  <div class='pre p1 fill-light mt0'>getNucleusFrom2DExperiment(experiment: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>experiment</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> 
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;</code>:
-        
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='getspectrumtype'>
-      getSpectrumType
-    </h3>
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo/nmr-metadata/blob/1d70929e17c9bb2b40401ce8cc806adbba4c7a1d/src/getSpectrumType.js#L8-L60'>
-      <span>src/getSpectrumType.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Returns an experiment string based on a pulse sequence</p>
-
-
-  <div class='pre p1 fill-light mt0'>getSpectrumType(pulse: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>pulse</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> 
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
-        
-      
-    
   
 
   
