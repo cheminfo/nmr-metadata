@@ -1,6 +1,7 @@
 'use strict';
 
 const jcampconverter = require('jcampconverter');
+const SD = require('spectra-data');
 
 const getSpectrumType = require('./getSpectrumType');
 
@@ -17,15 +18,38 @@ const getSpectrumType = require('./getSpectrumType');
  * @property {number} temperature - Temperature in Kelvin
  * @property {number} frequency
  * @property {string} date - Date in ISO string format
+ * @property {object} ranges
  */
+
+const defaultOptions = {
+    computeRanges: false
+};
+
+const rangesOptions = {
+    nH: 100,
+    realTop: false,
+    thresholdFactor: 0.85,
+    clean: true,
+    compile: true,
+    format: 'new',
+    integralFn: 1,
+    optimize: true
+};
 
 /**
  * Returns a metadata object from JCAMP
  * @param {string} jcampData
+ * @param {object} [options]
+ * @param {boolean} [options.computeRanges=false]
+ * @param {number} [options.nH=100] - number of hydrogens to take into account for ranges computation
  * @return {NMRMetadata} metadata
  */
-exports.parseJcamp = function (jcampData) {
-    const jcamp = jcampconverter.convert(jcampData.toString(), {
+exports.parseJcamp = function (jcampData, options) {
+    options = Object.assign({}, defaultOptions, options);
+    options.ranges = Object.assign({}, rangesOptions, options.ranges);
+
+    const jcampString = jcampData.toString();
+    const jcamp = jcampconverter.convert(jcampString, {
         keepRecordsRegExp: /.*/,
         withoutXY: true
     });
@@ -71,6 +95,19 @@ exports.parseJcamp = function (jcampData) {
 
     if (info['$DATE']) {
         metadata.date = (new Date(info['$DATE'] * 1000)).toISOString();
+    }
+
+    if (options.computeRanges && metadata.isFt && metadata.dimension === 1 && metadata.nucleus[0] === '1H') {
+        const spectrum = SD.NMR.fromJcamp(jcampString);
+        const ranges = spectrum.nmrPeakDetection(options.ranges);
+        ranges.forEach(function (range) {
+            delete range._highlight;
+            delete range.signalID;
+            range.signal.forEach(function (signal) {
+                delete signal.peak;
+            });
+        });
+        metadata.range = ranges;
     }
 
     return metadata;
