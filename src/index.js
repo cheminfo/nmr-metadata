@@ -41,7 +41,7 @@ const rangesOptions = {
  * @param {string} jcampData
  * @param {object} [options]
  * @param {boolean} [options.computeRanges=false]
- * @param {number} [options.nH=100] - number of hydrogens to take into account for ranges computation
+ * @param {number} [options.ranges] - options for ranges computation
  * @return {NMRMetadata} metadata
  */
 exports.parseJcamp = function (jcampData, options) {
