@@ -24,10 +24,10 @@ describe('getType', function () {
 
     it('should compute ranges', function () {
         const metadata = nmrMetadata.parseJcamp(read('ft-data.jdx'), {computeRanges: true, ranges: {nH: 10}});
-        metadata.range.should.be.an.Array().with.a.lengthOf(5);
+        metadata.range.should.be.an.Array().with.a.lengthOf(4);
         metadata.range[0].should.have.properties(['from', 'to', 'integral', 'signal']);
         metadata.range[0].signal.should.be.an.Array();
-        metadata.range[0].signal[0].should.have.properties(['delta', 'diaID', 'j', 'multiplicity']);
+        metadata.range[0].signal[0].should.have.properties(['delta', 'diaID', 'multiplicity']);
     });
 
 });
