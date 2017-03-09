@@ -27,13 +27,14 @@ const defaultOptions = {
 
 const rangesOptions = {
     nH: 100,
-    realTop: false,
+    realTop: true,
     thresholdFactor: 0.85,
     clean: true,
     compile: true,
     format: 'new',
-    integralFn: 1,
-    optimize: true
+    integralType: 'sum',
+    optimize: false,
+    frequencyCluster: 16
 };
 
 /**
@@ -99,7 +100,7 @@ exports.parseJcamp = function (jcampData, options) {
 
     if (options.computeRanges && metadata.isFt && metadata.dimension === 1 && metadata.nucleus[0] === '1H') {
         const spectrum = SD.NMR.fromJcamp(jcampString);
-        const ranges = spectrum.nmrPeakDetection(options.ranges);
+        const ranges = spectrum.getRanges(options.ranges);
         ranges.forEach(function (range) {
             delete range._highlight;
             delete range.signalID;
