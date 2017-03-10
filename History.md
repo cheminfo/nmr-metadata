@@ -1,3 +1,18 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/cheminfo/nmr-metadata/compare/v1.2.0...v2.0.0) (2017-03-10)
+
+
+### Chores
+
+* drop support for node 4 ([1a8fd0f](https://github.com/cheminfo/nmr-metadata/commit/1a8fd0f))
+
+
+### BREAKING CHANGES
+
+* drop support for node 4
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/cheminfo/nmr-metadata/compare/v1.1.0...v1.2.0) (2016-11-17)
 
