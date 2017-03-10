@@ -18,12 +18,12 @@
     "test": "mocha --require should --reporter mocha-better-spec-reporter --recursive"
   },
   "devDependencies": {
-    "mocha": "^2.5.1",
+    "mocha": "^3.2.0",
     "mocha-better-spec-reporter": "^3.0.2",
-    "should": "^9.0.2"
+    "should": "^11.2.1"
   },
   "dependencies": {
     "jcampconverter": "^2.5.1",
-    "spectra-data": "^3.0.2"
+    "spectra-data": "^3.0.4"
   }
 }

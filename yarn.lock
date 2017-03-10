@@ -3,8 +3,8 @@
 
 
 ansi-regex@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.0.0.tgz#c5061b6e0ef8a81775e50f5d66151bf6bf371107"
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
 
 ansi-styles@^2.2.1:
   version "2.2.1"
@@ -14,6 +14,10 @@ balanced-match@^0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.4.2.tgz#cb3f3e3c732dc0f01ee70b403f302e61d7709838"
 
+binary-search@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/binary-search/-/binary-search-1.3.2.tgz#88c9b7bd2b7221d352da78ec887f5af2549e4de2"
+
 brace-expansion@^1.0.0:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.6.tgz#7197d7eaa9b87e648390ea61fc66c84427420df9"
@@ -21,7 +25,11 @@ brace-expansion@^1.0.0:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
 
-brukerconverter@1.0.1:
+browser-stdout@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/browser-stdout/-/browser-stdout-1.3.0.tgz#f351d32969d32fa5d7a5567154263d928ae3bd1f"
+
+brukerconverter@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/brukerconverter/-/brukerconverter-1.0.1.tgz#c04b4a8ace2dd4f99dcc18a42145ce192f95058f"
   dependencies:
@@ -39,13 +47,11 @@ chalk@1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-commander@0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-0.6.1.tgz#fa68a14f6a945d54dbbe50d8cdb3320e9e3b1a06"
-
-commander@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.3.0.tgz#fd430e889832ec353b9acd1de217c11cb3eef873"
+commander@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
+  dependencies:
+    graceful-readlink ">= 1.0.0"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -65,28 +71,40 @@ diff@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-1.4.0.tgz#7f28d2eb9ee7b15a97efd89ce63dcfdaa3ccbabf"
 
-diff@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-2.2.2.tgz#5f813f994a0caa1a2ef79200759c4b89ca233a81"
+diff@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
-escape-string-regexp@1.0.2, escape-string-regexp@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.2.tgz#4dbc2fe674e71949caf3fb2695ce7f2dc1d9a8d1"
+escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
 extend@3.0.0, extend@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.0.tgz#5a474353b9f3353ddd8176dfd37b91c83a46f1d4"
 
-glob@3.2.11:
-  version "3.2.11"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-3.2.11.tgz#4a973f635b9190f715d10987d5c00fd2815ebe3d"
-  dependencies:
-    inherits "2"
-    minimatch "0.3"
+fs.realpath@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
-graceful-fs@4.1.3:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.3.tgz#92033ce11113c41e2628d61fdfa40bc10dc0155c"
+glob@7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.0.5.tgz#b4202a69099bbb4d292a7c1b95b6682b67ebdc95"
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.0.2"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
+graceful-fs@^4.1.3:
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
+
+"graceful-readlink@>= 1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
 growl@1.9.2:
   version "1.9.2"
@@ -98,6 +116,21 @@ has-ansi@^2.0.0:
   dependencies:
     ansi-regex "^2.0.0"
 
+has-flag@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
+
+heap@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/heap/-/heap-0.2.6.tgz#087e1f10b046932fc8594dd9e6d378afc9d1e5ac"
+
+inflight@^1.0.4:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
+  dependencies:
+    once "^1.3.0"
+    wrappy "1"
+
 inherits@2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
@@ -106,16 +139,13 @@ iobuffer@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/iobuffer/-/iobuffer-2.1.0.tgz#074882d24020a85db6a5042a0418ef9b6b2e616a"
 
-jade@0.26.3:
-  version "0.26.3"
-  resolved "https://registry.yarnpkg.com/jade/-/jade-0.26.3.tgz#8f10d7977d8d79f2f6ff862a81b0513ccb25686c"
-  dependencies:
-    commander "0.6.1"
-    mkdirp "0.3.0"
-
 jcampconverter@^2.3.0, jcampconverter@^2.4.5, jcampconverter@^2.5.1:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/jcampconverter/-/jcampconverter-2.7.0.tgz#4a2d809d2762b76ae7ee9e7e585c77b7e9977dcd"
+
+json3@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
 
 jszip@^2.5.0:
   version "2.6.1"
@@ -123,20 +153,56 @@ jszip@^2.5.0:
   dependencies:
     pako "~1.0.2"
 
-lru-cache@2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
-
-minimatch@0.3:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-0.3.0.tgz#275d8edaac4f1bb3326472089e7949c8394699dd"
+lodash._baseassign@^3.0.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz#8c38a099500f215ad09e59f1722fd0c52bfe0a4e"
   dependencies:
-    lru-cache "2"
-    sigmund "~1.0.0"
+    lodash._basecopy "^3.0.0"
+    lodash.keys "^3.0.0"
 
-minimatch@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.0.tgz#5236157a51e4f004c177fb3c527ff7dd78f0ef83"
+lodash._basecopy@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lodash._basecopy/-/lodash._basecopy-3.0.1.tgz#8da0e6a876cf344c0ad8a54882111dd3c5c7ca36"
+
+lodash._basecreate@^3.0.0:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/lodash._basecreate/-/lodash._basecreate-3.0.3.tgz#1bc661614daa7fc311b7d03bf16806a0213cf821"
+
+lodash._getnative@^3.0.0:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
+
+lodash._isiterateecall@^3.0.0:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/lodash._isiterateecall/-/lodash._isiterateecall-3.0.9.tgz#5203ad7ba425fae842460e696db9cf3e6aac057c"
+
+lodash.create@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.create/-/lodash.create-3.1.1.tgz#d7f2849f0dbda7e04682bb8cd72ab022461debe7"
+  dependencies:
+    lodash._baseassign "^3.0.0"
+    lodash._basecreate "^3.0.0"
+    lodash._isiterateecall "^3.0.0"
+
+lodash.isarguments@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
+
+lodash.isarray@^3.0.0:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
+
+lodash.keys@^3.0.0:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
+  dependencies:
+    lodash._getnative "^3.0.0"
+    lodash.isarguments "^3.0.0"
+    lodash.isarray "^3.0.0"
+
+minimatch@^3.0.2, minimatch@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.3.tgz#2a4e4090b96b2db06a9d7df01055a62a77c9b774"
   dependencies:
     brace-expansion "^1.0.0"
 
@@ -144,26 +210,17 @@ minimist@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
-mkdirp@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.3.0.tgz#1bbf5ab1ba827af23575143490426455f481fe1e"
-
 mkdirp@0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
 
-ml-array-utils@0.2.4, ml-array-utils@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/ml-array-utils/-/ml-array-utils-0.2.4.tgz#9d27a0a2e08944dc413c4cc3085aacd618f4d838"
+ml-array-utils@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ml-array-utils/-/ml-array-utils-0.3.0.tgz#c0cc5afdc1cb051f5a83b1ce71641c243672f649"
   dependencies:
-    ml-binary-search "^1.0.1"
     ml-stat "^1.0.1"
-
-ml-binary-search@^1.0.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/ml-binary-search/-/ml-binary-search-1.1.2.tgz#a94749aa56cc9d21308888f58d07dd2d67e7b4ca"
 
 ml-curve-fitting@0.0.6:
   version "0.0.6"
@@ -171,27 +228,52 @@ ml-curve-fitting@0.0.6:
   dependencies:
     ml-matrix "0.1.0"
 
+ml-curve-fitting@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/ml-curve-fitting/-/ml-curve-fitting-0.0.7.tgz#1722b03f8c14c03f51c93d248a340cff2df73b2b"
+  dependencies:
+    ml-matrix "^2.0.0"
+
 ml-disjoint-set@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ml-disjoint-set/-/ml-disjoint-set-1.0.0.tgz#6cd8e583eef5a02585348b98d0df21fd83ef6082"
 
-ml-fft@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/ml-fft/-/ml-fft-1.0.5.tgz#6fdaa0d7a3b91be44fc7bbca690b2afb4e0cd083"
+ml-distance-euclidean@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ml-distance-euclidean/-/ml-distance-euclidean-1.0.0.tgz#08447c2233641a2b2a9b4c29e5f792d28f1d5b95"
+
+ml-distance-matrix@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ml-distance-matrix/-/ml-distance-matrix-1.0.0.tgz#1d1ea4712b070c35407ba666ba8a38bc342ce7eb"
 
 ml-fft@1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ml-fft/-/ml-fft-1.3.4.tgz#8df71fdd6415d1d58b82dbc0a60835ebeeacb8b9"
 
-ml-gsd@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/ml-gsd/-/ml-gsd-1.1.5.tgz#c3d490af62c7e3292f9d3493b431d662ab30c734"
+ml-gsd@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ml-gsd/-/ml-gsd-2.0.1.tgz#322fa970e28dc83957e4c25b6116658b80904522"
   dependencies:
     extend "3.0.0"
     ml-optimize-lorentzian "0.1.1"
     ml-savitzky-golay-generalized "1.1.0"
-    ml-stat "^1.1.0"
     xy-parser "^1.2.0"
+
+ml-hash-table@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/ml-hash-table/-/ml-hash-table-0.2.1.tgz#ad2aa06c2e3a2ca6a7bbaa0f6dd50a8eaa333d6b"
+  dependencies:
+    binary-search "^1.3.2"
+    new-array "^1.0.0"
+    num-sort "^1.0.0"
+
+ml-hclust@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ml-hclust/-/ml-hclust-1.3.0.tgz#6be05bbd269f671e67fd66d548f442e8add5934d"
+  dependencies:
+    heap "^0.2.6"
+    ml-distance-euclidean "^1.0.0"
+    ml-distance-matrix "^1.0.0"
 
 ml-matrix-convolution@0.2.0:
   version "0.2.0"
@@ -200,7 +282,7 @@ ml-matrix-convolution@0.2.0:
     ml-fft "1.3.4"
     ml-stat "^1.2.0"
 
-ml-matrix-peaks-finder@0.2.1:
+ml-matrix-peaks-finder@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/ml-matrix-peaks-finder/-/ml-matrix-peaks-finder-0.2.1.tgz#c2accfbf0a0d3bc1f2b97f2b1003ad2988cc56cd"
   dependencies:
@@ -212,11 +294,11 @@ ml-matrix@0.1.0, ml-matrix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/ml-matrix/-/ml-matrix-0.1.0.tgz#4ee2d6c28c7d9b27c5b1d8779af95825b6c81e23"
 
-ml-matrix@^1.0.4:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/ml-matrix/-/ml-matrix-1.4.0.tgz#5715c0e9de012c6b8b59983b2ed7816e97b7b719"
+ml-matrix@^2.0.0, ml-matrix@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/ml-matrix/-/ml-matrix-2.3.0.tgz#df4601670a6735068ee9a6dbf23c094c1d3ece29"
   dependencies:
-    ml-array-utils "^0.2.4"
+    ml-array-utils "^0.3.0"
 
 ml-optimize-lorentzian@0.1.1:
   version "0.1.1"
@@ -236,54 +318,93 @@ ml-simple-clustering@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/ml-simple-clustering/-/ml-simple-clustering-0.1.0.tgz#11b600810b4d264bdd602a9408d31e7fb1307cd5"
 
+ml-sparse-matrix@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/ml-sparse-matrix/-/ml-sparse-matrix-0.2.1.tgz#f57d90e41de8fef2b54299295c9327e11c0e4942"
+  dependencies:
+    ml-hash-table "^0.2.0"
+
 ml-stat@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ml-stat/-/ml-stat-1.1.0.tgz#a00c96e344dab4aba456a836fb4344147e97b5f6"
 
-ml-stat@^1.0.1, ml-stat@^1.1.0, ml-stat@^1.2.0, ml-stat@^1.3.0:
+ml-stat@^1.0.1, ml-stat@^1.2.0, ml-stat@^1.3.0:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/ml-stat/-/ml-stat-1.3.3.tgz#8a5493b0f67382fbf705c260e070436655a7dcfa"
 
 mocha-better-spec-reporter@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/mocha-better-spec-reporter/-/mocha-better-spec-reporter-3.0.2.tgz#8d6d979ae0a9ce62b47ba301f13906979aee428d"
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/mocha-better-spec-reporter/-/mocha-better-spec-reporter-3.1.0.tgz#b462d39264b901ecf20c8c9a469247452a579f8e"
   dependencies:
     chalk "1.1.3"
     data-uri-to-buffer "0.0.4"
-    diff "2.2.2"
-    graceful-fs "4.1.3"
-    minimatch "3.0.0"
-    should-format "0.3.2"
-    should-type "0.2.0"
-    source-map "0.5.3"
+    diff "^3.1.0"
+    graceful-fs "^4.1.3"
+    minimatch "^3.0.3"
+    should-format "^3.0.2"
+    should-type "^1.4.0"
+    source-map "^0.5.6"
     stack-trace "0.0.9"
 
-mocha@^2.5.1:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-2.5.3.tgz#161be5bdeb496771eb9b35745050b622b5aefc58"
+mocha@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.2.0.tgz#7dc4f45e5088075171a68896814e6ae9eb7a85e3"
   dependencies:
-    commander "2.3.0"
+    browser-stdout "1.3.0"
+    commander "2.9.0"
     debug "2.2.0"
     diff "1.4.0"
-    escape-string-regexp "1.0.2"
-    glob "3.2.11"
+    escape-string-regexp "1.0.5"
+    glob "7.0.5"
     growl "1.9.2"
-    jade "0.26.3"
+    json3 "3.3.2"
+    lodash.create "3.1.1"
     mkdirp "0.5.1"
-    supports-color "1.2.0"
-    to-iso-string "0.0.2"
+    supports-color "3.1.2"
 
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
 
-nmr-range@^0.1.10:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/nmr-range/-/nmr-range-0.1.10.tgz#eebc0c253e5c19b34303fab135027ca283ba12ae"
+new-array@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/new-array/-/new-array-1.0.0.tgz#5dbc639d961eac7f1a9fbc1a7146ec12f2924fbf"
+
+nmr-simulation@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/nmr-simulation/-/nmr-simulation-1.0.0.tgz#dc413a42107c256bee06e06e41bf16e5072cd527"
+  dependencies:
+    binary-search "^1.3.2"
+    ml-hclust "^1.3.0"
+    ml-matrix "^2.3.0"
+    ml-simple-clustering "0.1.0"
+    ml-sparse-matrix "^0.2.1"
+    new-array "^1.0.0"
+    num-sort "^1.0.0"
+
+num-sort@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/num-sort/-/num-sort-1.0.0.tgz#cabec1fd5f4da4aca995af90b7a0f379944e1dbd"
+  dependencies:
+    number-is-nan "^1.0.0"
+
+number-is-nan@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
+
+once@^1.3.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
+  dependencies:
+    wrappy "1"
 
 pako@~1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.3.tgz#5f515b0c6722e1982920ae8005eacb0b7ca73ccf"
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.4.tgz#412cc97c3b7ff06dc6c2557fd4f03d06f5e708d4"
+
+path-is-absolute@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
 should-equal@^1.0.0:
   version "1.0.1"
@@ -291,57 +412,55 @@ should-equal@^1.0.0:
   dependencies:
     should-type "^1.0.0"
 
-should-format@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/should-format/-/should-format-0.3.2.tgz#a59831e01a2ddee149911bc7148be5c80319e1ff"
+should-format@^3.0.2:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/should-format/-/should-format-3.0.3.tgz#9bfc8f74fa39205c53d38c34d717303e277124f1"
   dependencies:
-    should-type "0.2.0"
+    should-type "^1.3.0"
+    should-type-adaptors "^1.0.1"
 
-should-format@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/should-format/-/should-format-1.0.0.tgz#0a30cdab4a3bd1427bbccb8b738567bda7290d78"
+should-type-adaptors@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/should-type-adaptors/-/should-type-adaptors-1.0.1.tgz#efe5553cdf68cff66e5c5f51b712dc351c77beaa"
   dependencies:
-    should-type "^1.0.0"
+    should-type "^1.3.0"
+    should-util "^1.0.0"
 
-should-type@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/should-type/-/should-type-0.2.0.tgz#6707ef95529d989dcc098fe0753ab1f9136bb7f6"
-
-should-type@^1.0.0:
+should-type@^1.0.0, should-type@^1.3.0, should-type@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/should-type/-/should-type-1.4.0.tgz#0756d8ce846dfd09843a6947719dfa0d4cff5cf3"
 
-should@^9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/should/-/should-9.0.2.tgz#b550f691e71c66788e0e96e9f721d58be6920e5a"
+should-util@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/should-util/-/should-util-1.0.0.tgz#c98cda374aa6b190df8ba87c9889c2b4db620063"
+
+should@^11.2.1:
+  version "11.2.1"
+  resolved "https://registry.yarnpkg.com/should/-/should-11.2.1.tgz#90f55145552d01cfc200666e4e818a1c9670eda2"
   dependencies:
     should-equal "^1.0.0"
-    should-format "^1.0.0"
-    should-type "^1.0.0"
+    should-format "^3.0.2"
+    should-type "^1.4.0"
+    should-type-adaptors "^1.0.1"
+    should-util "^1.0.0"
 
-sigmund@~1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/sigmund/-/sigmund-1.0.1.tgz#3ff21f198cad2175f9f3b781853fd94d0d19b590"
+source-map@^0.5.6:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
 
-source-map@0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.3.tgz#82674b85a71b0be76c3e7416d15e9f5252eb3be0"
-
-spectra-data@^1.7.17:
-  version "1.7.17"
-  resolved "https://registry.yarnpkg.com/spectra-data/-/spectra-data-1.7.17.tgz#1df67898e95d4e25c0fe75a140be4babb47a9bda"
+spectra-data@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/spectra-data/-/spectra-data-3.0.4.tgz#07dd0ae52bcd72e7f6d38d0dd221e5f29b0d721b"
   dependencies:
-    brukerconverter "1.0.1"
-    extend "^3.0.0"
+    brukerconverter "^1.0.1"
     jcampconverter "^2.4.5"
-    ml-array-utils "0.2.4"
-    ml-fft "1.0.5"
-    ml-gsd "^1.1.5"
-    ml-matrix "^1.0.4"
-    ml-matrix-peaks-finder "0.2.1"
+    ml-array-utils "^0.3.0"
+    ml-curve-fitting "0.0.7"
+    ml-gsd "^2.0.1"
+    ml-matrix-peaks-finder "^0.2.1"
     ml-simple-clustering "0.1.0"
     ml-stat "^1.3.0"
-    nmr-range "^0.1.10"
+    nmr-simulation "^1.0.0"
 
 stack-trace@0.0.9:
   version "0.0.9"
@@ -353,17 +472,19 @@ strip-ansi@^3.0.0:
   dependencies:
     ansi-regex "^2.0.0"
 
-supports-color@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-1.2.0.tgz#ff1ed1e61169d06b3cf2d588e188b18d8847e17e"
+supports-color@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.1.2.tgz#72a262894d9d408b956ca05ff37b2ed8a6e2a2d5"
+  dependencies:
+    has-flag "^1.0.0"
 
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-to-iso-string@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/to-iso-string/-/to-iso-string-0.0.2.tgz#4dc19e664dfccbe25bd8db508b00c6da158255d1"
+wrappy@1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
 xy-parser@^1.2.0:
   version "1.2.0"
