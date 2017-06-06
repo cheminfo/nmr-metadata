@@ -1,3 +1,8 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/cheminfo/nmr-metadata/compare/v2.0.0...v2.0.1) (2017-06-06)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/cheminfo/nmr-metadata/compare/v1.2.0...v2.0.0) (2017-03-10)
 
