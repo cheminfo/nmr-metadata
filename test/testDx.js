@@ -22,6 +22,13 @@ describe('getType', function () {
         metadata.isFt.should.eql(true);
     });
 
+    it('should be FT', function () {
+        const metadata = nmrMetadata.parseJcamp(read('test2.jdx'), {computeRanges: true});
+        metadata['type'].should.eql('NMR SPECTRUM');
+        metadata.isFid.should.eql(false);
+        metadata.isFt.should.eql(true);
+    });
+
     it('should compute ranges', function () {
         const metadata = nmrMetadata.parseJcamp(read('ft-data.jdx'), {computeRanges: true, ranges: {nH: 10}});
         metadata.range.should.be.an.Array().with.a.lengthOf(4);

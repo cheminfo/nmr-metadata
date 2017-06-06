@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "jcampconverter": "^2.5.1",
-    "spectra-data": "^3.0.4"
+    "spectra-data": "^3.1.0"
   }
 }
