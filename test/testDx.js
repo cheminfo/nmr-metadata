@@ -22,12 +22,20 @@ describe('getType', function () {
         metadata.isFt.should.eql(true);
     });
 
-    it('should be FT', function () {
+    it('should parse test2 without infinite loop', function () {
         const metadata = nmrMetadata.parseJcamp(read('test2.jdx'), {computeRanges: true});
         metadata['type'].should.eql('NMR SPECTRUM');
         metadata.isFid.should.eql(false);
         metadata.isFt.should.eql(true);
     });
+
+    it('should parse test3 without infinite loop', function () {
+        const metadata = nmrMetadata.parseJcamp(read('test3.jdx'), {computeRanges: true});
+        metadata['type'].should.eql('NMR SPECTRUM');
+        metadata.isFid.should.eql(false);
+        metadata.isFt.should.eql(true);
+    });
+
 
     it('should compute ranges', function () {
         const metadata = nmrMetadata.parseJcamp(read('ft-data.jdx'), {computeRanges: true, ranges: {nH: 10}});
