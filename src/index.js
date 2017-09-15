@@ -25,16 +25,12 @@ const defaultOptions = {
     computeRanges: false
 };
 
-const rangesOptions = {
+const defaultRangesOptions = {
     nH: 100,
-    realTop: true,
     thresholdFactor: 0.85,
-    clean: true,
+    clean: 0.4,
     compile: true,
-    format: 'new',
-    integralType: 'sum',
-    optimize: false,
-    frequencyCluster: 16
+    integralType: 'sum'
 };
 
 /**
@@ -47,7 +43,6 @@ const rangesOptions = {
  */
 exports.parseJcamp = function (jcampData, options) {
     options = Object.assign({}, defaultOptions, options);
-    options.ranges = Object.assign({}, rangesOptions, options.ranges);
 
     const jcampString = jcampData.toString();
     const jcamp = jcampconverter.convert(jcampString, {
@@ -99,9 +94,11 @@ exports.parseJcamp = function (jcampData, options) {
     }
 
     if (options.computeRanges && metadata.isFt && metadata.dimension === 1 && metadata.nucleus[0] === '1H') {
+        const rangesOptions = Object.assign({}, defaultRangesOptions, options.ranges);
+        if (options.removeImpurities && metadata.solvent) rangesOptions.removeImpurity = {solvent: metadata.solvent};
         const spectrum = SD.NMR.fromJcamp(jcampString);
-        const ranges = spectrum.getRanges(options.ranges);
-        ranges.forEach(function (range) {
+        const ranges = spectrum.getRanges(rangesOptions);
+        ranges.forEach(function (range) { // todo remove when there is an option to avoid that
             delete range._highlight;
             delete range.signalID;
             range.signal.forEach(function (signal) {
