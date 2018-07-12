@@ -45,4 +45,13 @@ describe('getType', function () {
         metadata.range[0].signal[0].should.have.properties(['delta', 'diaID', 'multiplicity']);
     });
 
+    it.only('should be mestrec', function () {
+        const metadata = nmrMetadata.parseJcamp(read('mestrec.jcamp'));
+        metadata.type.should.eql('NMRSPECTRUM');
+        metadata.isFid.should.eql(false);
+        metadata.isFt.should.eql(true);
+        metadata.solvent.should.eql('MeOD');
+        metadata.frequency.should.eql( 400.1318406);
+    });
+
 });
