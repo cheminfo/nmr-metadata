@@ -36,6 +36,8 @@ describe('getType', function() {
     const metadata = nmrMetadata.parseJcamp(read('test3.jdx'), {
       computeRanges: true
     });
+    metadata.probe.should.eql('5 mm PABBO BB/19F-1H/D Z-GRD Z116098/0061');
+    metadata.acquisitionMode.should.eql(0);
     metadata['type'].should.eql('NMR SPECTRUM');
     metadata.isFid.should.eql(false);
     metadata.isFt.should.eql(true);
@@ -46,6 +48,7 @@ describe('getType', function() {
       computeRanges: true,
       ranges: { nH: 10 }
     });
+    metadata.acquisitionMode.should.eql(0);
     metadata.range.should.be.an.Array().with.a.lengthOf(4);
     metadata.range[0].should.have.properties([
       'from',

@@ -17,6 +17,8 @@ const getSpectrumType = require('./getSpectrumType');
  * @property {string} experiment
  * @property {number} temperature - Temperature in Kelvin
  * @property {number} frequency
+ * @property {string} probe
+ * @property {string} acquisitionMode
  * @property {number} expno - Experience number
  * @property {string} date - Date in ISO string format
  * @property {object} ranges
@@ -70,6 +72,10 @@ exports.parseJcamp = function(jcampData, options) {
   maybeAdd(metadata, 'temperature', parseFloat(info['$TE'] || info['.TE']));
   maybeAdd(metadata, 'frequency', parseFloat(info['.OBSERVEFREQUENCY']));
   maybeAdd(metadata, 'type', info['DATATYPE']);
+  maybeAdd(metadata, 'probe', info['$PROBHD']);
+  if (info['$FNTYPE'] !== undefined) {
+    maybeAdd(metadata, 'acquisitionMode', parseInt(info['$FNTYPE']));
+  }
   maybeAdd(metadata, 'expno', parseInt(info['$EXPNO']));
   if (metadata.type) {
     if (metadata.type.toUpperCase().indexOf('FID') >= 0) metadata.isFid = true;
@@ -148,7 +154,14 @@ exports.getNucleusFrom2DExperiment = function(experiment) {
 exports.getSpectrumType = getSpectrumType;
 
 function maybeAdd(obj, name, value) {
-  if (value) {
-    obj[name] = value;
+  if (value !== undefined) {
+    if (typeof value === 'string') {
+      if (value.startsWith('<') && value.endsWith('>')) {
+        value = value.substring(1, value.length - 2);
+      }
+      obj[name] = value.trim();
+    } else {
+      obj[name] = value;
+    }
   }
 }
