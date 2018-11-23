@@ -1,6 +1,6 @@
 {
   "name": "nmr-metadata",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Extract and normalize metadata from NMR spectra",
   "keywords": [],
   "files": [
@@ -19,13 +19,13 @@
     "test": "mocha --require should --reporter mocha-better-spec-reporter --recursive"
   },
   "devDependencies": {
-    "cheminfo-tools": "^1.20.2",
+    "cheminfo-tools": "^1.22.4",
     "mocha": "^3.5.3",
     "mocha-better-spec-reporter": "^3.0.2",
-    "should": "^13.0.1"
+    "should": "^13.2.3"
   },
   "dependencies": {
-    "jcampconverter": "^2.9.2",
-    "spectra-data": "^3.3.3"
+    "jcampconverter": "^2.10.2",
+    "spectra-data": "^3.4.5"
   }
 }
