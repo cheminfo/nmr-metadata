@@ -2295,7 +2295,7 @@ $$ --------------------------
 ##$SIGF2= 0
 ##$SINO= 0
 ##$SIOLD= 65536
-##$SPECTYP= <>
+##$SPECTYP= <proton>
 ##$SREGLST= <1H.CDCl3>
 ##$SSB= 0
 ##$STSI= 65536

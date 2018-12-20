@@ -66,7 +66,7 @@ exports.parseJcamp = function(jcampData, options) {
     'pulse',
     info['.PULSESEQUENCE'] || info['.PULPROG'] || info['$PULPROG']
   );
-  maybeAdd(metadata, 'experiment', getSpectrumType(metadata.pulse));
+  maybeAdd(metadata, 'experiment', getSpectrumType(metadata, info));
   maybeAdd(metadata, 'temperature', parseFloat(info['$TE'] || info['.TE']));
   maybeAdd(metadata, 'frequency', parseFloat(info['.OBSERVEFREQUENCY']));
   maybeAdd(metadata, 'type', info['DATATYPE']);

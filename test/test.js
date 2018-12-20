@@ -2,57 +2,53 @@
 
 const nmrMetadata = require('..');
 
-describe('getSpectrumType', function () {
-    it('should return empty string for unknown pulse', function () {
-        check([
-            ['', ''],
-            ['aaa', ''],
-            [null, ''],
-            ['test', '']
-        ]);
-    });
-    it('should know about real pulse sequences', function () {
-        check([
-            ['zg30', '1d'],
-            ['zghfigqn', '1d'],
+describe('getSpectrumType', function() {
+  it('should return empty string for unknown pulse', function() {
+    check([['', ''], ['aaa', ''], [null, ''], ['test', '']]);
+  });
 
-            ['hsqct1etf3gpsi', 'hsqctocsy'],
+  it('should know about real pulse sequences', function() {
+    check([
+      ['zg30', '1d'],
+      ['zghfigqn', '1d'],
 
-            ['hsqcedetgpsisp2.3', 'hsqc'],
-            ['hsqcdietgpiasisp', 'hsqc'],
+      ['hsqct1etf3gpsi', 'hsqctocsy'],
 
-            ['hmbcgplpndqf', 'hmbc'],
-            ['shmbcgpndqf', 'hmbc'],
-            ['hmbcacbigpl2ndqf', 'hmbc'],
+      ['hsqcedetgpsisp2.3', 'hsqc'],
+      ['hsqcdietgpiasisp', 'hsqc'],
 
-            ['cosygpppqf', 'cosy'],
-            ['cosycwphps', 'cosy'],
-            ['cosydfetgp.1', 'cosy'],
+      ['hmbcgplpndqf', 'hmbc'],
+      ['shmbcgpndqf', 'hmbc'],
+      ['hmbcacbigpl2ndqf', 'hmbc'],
 
-            ['hjresqf', 'jres'],
-            ['lcjrescwfdprqf', 'jres'],
+      ['cosygpppqf', 'cosy'],
+      ['cosycwphps', 'cosy'],
+      ['cosydfetgp.1', 'cosy'],
 
-            ['atocsygpph19', 'tocsy'],
-            ['dipsi2esfbgpph', 'tocsy'],
-            ['mlevesgpph', 'tocsy'],
+      ['hjresqf', 'jres'],
+      ['lcjrescwfdprqf', 'jres'],
 
-            ['noesygpphwgxf', 'noesy'],
-            ['stdnoesyesgpph', 'noesy'],
+      ['atocsygpph19', 'tocsy'],
+      ['dipsi2esfbgpph', 'tocsy'],
+      ['mlevesgpph', 'tocsy'],
 
-            ['roesyesgpph', 'roesy'],
-            ['troesyphpr', 'roesy'],
+      ['noesygpphwgxf', 'noesy'],
+      ['stdnoesyesgpph', 'noesy'],
 
-            ['deptppnd', 'dept'],
-            ['hxdeptbiph', 'dept'],
+      ['roesyesgpph', 'roesy'],
+      ['troesyphpr', 'roesy'],
 
-            ['jmod', 'aptjmod'],
-            ['apt', 'aptjmod']
-        ]);
-    });
+      ['deptppnd', 'dept'],
+      ['hxdeptbiph', 'dept'],
+
+      ['jmod', 'aptjmod'],
+      ['apt', 'aptjmod']
+    ]);
+  });
 });
 
 function check(arr) {
-    for (var test of arr) {
-        nmrMetadata.getSpectrumType(test[0]).should.equal(test[1]);
-    }
+  for (var test of arr) {
+    nmrMetadata.getSpectrumType(test[0]).should.equal(test[1]);
+  }
 }

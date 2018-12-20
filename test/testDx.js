@@ -30,6 +30,7 @@ describe('getType', function() {
     metadata.isFid.should.eql(false);
     metadata.isFt.should.eql(true);
     metadata.expno.should.eql(1);
+    metadata.experiment.should.eql('proton');
   });
 
   it('should parse test3 without infinite loop', function() {
