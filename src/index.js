@@ -1,10 +1,10 @@
-'use strict';
 
-const jcampconverter = require('jcampconverter');
-const SD = require('spectra-data');
+import jcampconverter from 'jcampconverter';
+import SD from 'spectra-data';
 
-const getMetadata = require('./getMetadata');
-const getSpectrumType = require('./getSpectrumType');
+
+import { getMetaData } from './getMetaData';
+
 
 /**
  * Object containing parsed metadata
@@ -40,12 +40,12 @@ const defaultRangesOptions = {
 /**
  * Returns a metadata object from JCAMP
  * @param {string} jcampData
- * @param {object} [options]
+ * @param {object} [options={}]
  * @param {boolean} [options.computeRanges=false]
  * @param {number} [options.ranges] - options for ranges computation
  * @return {NMRMetadata} metadata
  */
-exports.parseJcamp = function(jcampData, options) {
+export function fromJcamp(jcampData, options) {
   options = Object.assign({}, defaultOptions, options);
 
   const jcampString = jcampData.toString();
@@ -54,7 +54,7 @@ exports.parseJcamp = function(jcampData, options) {
     withoutXY: true
   });
 
-  let metadata = getMetadata(parsedJcamp);
+  let metadata = getMetaData(parsedJcamp);
 
   if (
     options.computeRanges &&
@@ -67,15 +67,16 @@ exports.parseJcamp = function(jcampData, options) {
       defaultRangesOptions,
       options.ranges
     );
-    if (options.removeImpurities && metadata.solvent)
+    if (options.removeImpurities && metadata.solvent) {
       rangesOptions.removeImpurity = { solvent: metadata.solvent };
+    }
     const spectrum = SD.NMR.fromJcamp(jcampString);
     const ranges = spectrum.getRanges(rangesOptions);
-    ranges.forEach(function(range) {
+    ranges.forEach(function (range) {
       // todo remove when there is an option to avoid that
       delete range._highlight;
       delete range.signalID;
-      range.signal.forEach(function(signal) {
+      range.signal.forEach(function (signal) {
         delete signal.peak;
       });
     });
@@ -83,15 +84,13 @@ exports.parseJcamp = function(jcampData, options) {
   }
 
   return metadata;
-};
+}
 
 /**
  * Returns a list of nuclei based on an experiment string
  * @param {string} experiment
  * @return {string[]}
  */
-exports.getNucleusFrom2DExperiment = require('./getNucleusFrom2DExperiment');
+export { getNucleusFrom2DExperiment } from './getNucleusFrom2DExperiment';
+export { getSpectrumType } from './getSpectrumType';
 
-exports.getMetadata = require('./getMetadata');
-
-exports.getSpectrumType = getSpectrumType;

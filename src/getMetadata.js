@@ -1,7 +1,7 @@
-const getSpectrumType = require('./getSpectrumType');
-const getNucleusFrom2DExperiment = require('./getNucleusFrom2DExperiment');
+import getSpectrumType from './getSpectrumType';
+import getNucleusFrom2DExperiment from './getNucleusFrom2DExperiment';
 
-function getMetadata(parsedJcamp) {
+export function getMetaData(parsedJcamp) {
   const metadata = {
     dimension: parsedJcamp.twoD ? 2 : 1,
     nucleus: [],
@@ -10,24 +10,26 @@ function getMetadata(parsedJcamp) {
   };
 
   const info = parsedJcamp.info;
-  maybeAdd(metadata, 'title', info['TITLE']);
+  maybeAdd(metadata, 'title', info.TITLE);
   maybeAdd(metadata, 'solvent', info['.SOLVENTNAME']);
   maybeAdd(
     metadata,
     'pulse',
-    info['.PULSESEQUENCE'] || info['.PULPROG'] || info['$PULPROG']
+    info['.PULSESEQUENCE'] || info['.PULPROG'] || info.$PULPROG
   );
   maybeAdd(metadata, 'experiment', getSpectrumType(metadata, info));
-  maybeAdd(metadata, 'temperature', parseFloat(info['$TE'] || info['.TE']));
+  maybeAdd(metadata, 'temperature', parseFloat(info.$TE || info['.TE']));
   maybeAdd(metadata, 'frequency', parseFloat(info['.OBSERVEFREQUENCY']));
-  maybeAdd(metadata, 'type', info['DATATYPE']);
-  maybeAdd(metadata, 'probe', info['$PROBHD']);
-  if (info['$FNTYPE'] !== undefined) {
-    maybeAdd(metadata, 'acquisitionMode', parseInt(info['$FNTYPE']));
+  maybeAdd(metadata, 'type', info.DATATYPE);
+  maybeAdd(metadata, 'probe', info.$PROBHD);
+  if (info.$FNTYPE !== undefined) {
+    maybeAdd(metadata, 'acquisitionMode', parseInt(info.$FNTYPE));
   }
-  maybeAdd(metadata, 'expno', parseInt(info['$EXPNO']));
+  maybeAdd(metadata, 'expno', parseInt(info.$EXPNO));
   if (metadata.type) {
-    if (metadata.type.toUpperCase().indexOf('FID') >= 0) metadata.isFid = true;
+    if (metadata.type.toUpperCase().indexOf('FID') >= 0) { 
+metadata.isFid = true;
+ }
     else if (metadata.type.toUpperCase().indexOf('SPECTRUM') >= 0) {
       metadata.isFt = true;
     }
@@ -41,20 +43,18 @@ function getMetadata(parsedJcamp) {
   } else {
     const nucleus = info['.NUCLEUS'];
     if (nucleus) {
-      metadata.nucleus = nucleus.split(',').map(nuc => nuc.trim());
+      metadata.nucleus = nucleus.split(',').map((nuc) => nuc.trim());
     }
   }
   if (metadata.nucleus.length === 0) {
     metadata.nucleus = getNucleusFrom2DExperiment(metadata.experiment);
   }
 
-  if (info['$DATE']) {
-    metadata.date = new Date(info['$DATE'] * 1000).toISOString();
+  if (info.$DATE) {
+    metadata.date = new Date(info.$DATE * 1000).toISOString();
   }
   return metadata;
 }
-
-module.exports = getMetadata;
 
 function maybeAdd(obj, name, value) {
   if (value !== undefined) {
