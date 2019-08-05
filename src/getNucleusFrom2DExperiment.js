@@ -1,4 +1,4 @@
-function getNucleusFrom2DExperiment(experiment) {
+export function getNucleusFrom2DExperiment(experiment) {
   if (typeof experiment !== 'string') {
     return [];
   }
@@ -11,5 +11,3 @@ function getNucleusFrom2DExperiment(experiment) {
   }
   return ['1H', '1H'];
 }
-
-module.exports = getNucleusFrom2DExperiment;

@@ -1,13 +1,12 @@
-'use strict';
 
-const nmrMetadata = require('..');
+import nmrMetadata from '..';
 
-describe('getSpectrumType', function() {
-  it('should return empty string for unknown pulse', function() {
+describe('getSpectrumType', function () {
+  it('should return empty string for unknown pulse', function () {
     check([['', ''], ['aaa', ''], [null, ''], ['test', '']]);
   });
 
-  it('should know about real pulse sequences', function() {
+  it('should know about real pulse sequences', function () {
     check([
       ['zg30', '1d'],
       ['zghfigqn', '1d'],

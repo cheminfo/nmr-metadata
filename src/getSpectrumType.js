@@ -1,16 +1,15 @@
-'use strict';
 
 /**
  * Returns an experiment string based on a pulse sequence
  * @param {string} pulse
  * @return {string}
  */
-module.exports = function getSpectrumType(meta = {}, info = {}) {
+export function getSpectrumType(meta = {}, info = {}) {
   if (meta === null) meta = {};
   if (typeof meta === 'string') {
     meta = { pulse: meta };
   }
-  let spectyp = (info['$SPECTYP'] || '')
+  let spectyp = (info.$SPECTYP || '')
     .replace(/^<(.*)>$/, '$1')
     .toLowerCase();
 
@@ -77,4 +76,4 @@ module.exports = function getSpectrumType(meta = {}, info = {}) {
   }
 
   return '';
-};
+}
