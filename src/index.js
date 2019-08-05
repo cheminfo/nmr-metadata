@@ -1,7 +1,6 @@
 
 import jcampconverter from 'jcampconverter';
-import SD from 'spectra-data';
-
+import { NMR } from 'spectra-data';
 
 import { getMetaData } from './getMetaData';
 
@@ -70,7 +69,7 @@ export function fromJcamp(jcampData, options) {
     if (options.removeImpurities && metadata.solvent) {
       rangesOptions.removeImpurity = { solvent: metadata.solvent };
     }
-    const spectrum = SD.NMR.fromJcamp(jcampString);
+    const spectrum = NMR.fromJcamp(jcampString);
     const ranges = spectrum.getRanges(rangesOptions);
     ranges.forEach(function (range) {
       // todo remove when there is an option to avoid that

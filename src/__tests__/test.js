@@ -48,6 +48,6 @@ describe('getSpectrumType', function () {
 
 function check(arr) {
   for (var test of arr) {
-    nmrMetadata.getSpectrumType(test[0]).should.equal(test[1]);
+    expect(nmrMetadata.getSpectrumType(test[0])).toBe(test[1]);
   }
 }
