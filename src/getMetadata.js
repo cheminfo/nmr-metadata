@@ -1,5 +1,5 @@
-import getSpectrumType from './getSpectrumType';
-import getNucleusFrom2DExperiment from './getNucleusFrom2DExperiment';
+import { getSpectrumType } from './getSpectrumType';
+import { getNucleusFrom2DExperiment } from './getNucleusFrom2DExperiment';
 
 export function getMetaData(parsedJcamp) {
   const metadata = {
@@ -27,10 +27,9 @@ export function getMetaData(parsedJcamp) {
   }
   maybeAdd(metadata, 'expno', parseInt(info.$EXPNO));
   if (metadata.type) {
-    if (metadata.type.toUpperCase().indexOf('FID') >= 0) { 
-metadata.isFid = true;
- }
-    else if (metadata.type.toUpperCase().indexOf('SPECTRUM') >= 0) {
+    if (metadata.type.toUpperCase().indexOf('FID') >= 0) {
+      metadata.isFid = true;
+    } else if (metadata.type.toUpperCase().indexOf('SPECTRUM') >= 0) {
       metadata.isFt = true;
     }
   }
