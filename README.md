@@ -1,9 +1,9 @@
 # nmr-metadata
 
-  [![NPM version][npm-image]][npm-url]
-  [![build status][travis-image]][travis-url]
-  [![David deps][david-image]][david-url]
-  [![npm download][download-image]][download-url]
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![David deps][david-image]][david-url]
+[![npm download][download-image]][download-url]
 
 Extract and normalize metadata from NMR spectra
 
@@ -11,13 +11,18 @@ Extract and normalize metadata from NMR spectra
 
 ```
 $ npm install nmr-metadata
+
 ```
 
-## [Documentation](https://cheminfo.github.io/nmr-metadata/)
+## example
+
+```
+
+```
 
 ## License
 
-  [MIT](./LICENSE)
+[MIT](./LICENSE)
 
 [npm-image]: https://img.shields.io/npm/v/nmr-metadata.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/nmr-metadata
