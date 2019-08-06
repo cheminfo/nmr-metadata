@@ -1,15 +1,15 @@
 import { getSpectrumType } from './getSpectrumType';
 import { getNucleusFrom2DExperiment } from './getNucleusFrom2DExperiment';
 
-export function getMetaData(parsedJcamp) {
+export function getMetaData(info) {
   const metadata = {
-    dimension: parsedJcamp.twoD ? 2 : 1,
+    dimension: 1,
     nucleus: [],
     isFid: false,
-    isFt: false
+    isFt: false,
+    isComplex: false
   };
 
-  const info = parsedJcamp.info;
   maybeAdd(metadata, 'title', info.TITLE);
   maybeAdd(metadata, 'solvent', info['.SOLVENTNAME']);
   maybeAdd(
@@ -34,20 +34,15 @@ export function getMetaData(parsedJcamp) {
     }
   }
 
-  if (metadata.dimension === 1) {
-    const nucleus = info['.OBSERVENUCLEUS'];
-    if (nucleus) {
-      metadata.nucleus = [nucleus.replace(/[^A-Za-z0-9]/g, '')];
-    }
+  if (info['.NUCLEUS']) {
+    metadata.nucleus = info['.NUCLEUS'].split(',').map((nuc) => nuc.trim());
+  } else if (info['.OBSERVENUCLEUS']) {
+    metadata.nucleus = [info['.OBSERVENUCLEUS'].replace(/[^A-Za-z0-9]/g, '')];
   } else {
-    const nucleus = info['.NUCLEUS'];
-    if (nucleus) {
-      metadata.nucleus = nucleus.split(',').map((nuc) => nuc.trim());
-    }
-  }
-  if (metadata.nucleus.length === 0) {
     metadata.nucleus = getNucleusFrom2DExperiment(metadata.experiment);
   }
+
+  metadata.dimension = metadata.nucleus.length;
 
   if (info.$DATE) {
     metadata.date = new Date(info.$DATE * 1000).toISOString();
