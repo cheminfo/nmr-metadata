@@ -53,7 +53,9 @@ export function fromJcamp(jcampData, options) {
     withoutXY: true
   });
 
-  let metadata = getMetaData(parsedJcamp);
+  // console.log(parsedJcamp.info);
+
+  let metadata = getMetaData(parsedJcamp.info);
 
   if (
     options.computeRanges &&
@@ -85,11 +87,6 @@ export function fromJcamp(jcampData, options) {
   return metadata;
 }
 
-/**
- * Returns a list of nuclei based on an experiment string
- * @param {string} experiment
- * @return {string[]}
- */
-export { getNucleusFrom2DExperiment } from './getNucleusFrom2DExperiment';
+
 export { getSpectrumType } from './getSpectrumType';
 

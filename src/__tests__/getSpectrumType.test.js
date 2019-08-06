@@ -1,13 +1,16 @@
 
-import nmrMetadata from '..';
+import { getSpectrumType } from '../getSpectrumType';
 
 describe('getSpectrumType', function () {
   it('should return empty string for unknown pulse', function () {
-    check([['', ''], ['aaa', ''], [null, ''], ['test', '']]);
+    const tests = [['', ''], ['aaa', ''], [null, ''], ['test', '']];
+    for (var test of tests) {
+      expect(getSpectrumType(test[0])).toBe(test[1]);
+    }
   });
 
   it('should know about real pulse sequences', function () {
-    check([
+    const tests = [
       ['zg30', '1d'],
       ['zghfigqn', '1d'],
 
@@ -42,12 +45,9 @@ describe('getSpectrumType', function () {
 
       ['jmod', 'aptjmod'],
       ['apt', 'aptjmod']
-    ]);
+    ];
+    for (var test of tests) {
+      expect(getSpectrumType(test[0])).toBe(test[1]);
+    }
   });
 });
-
-function check(arr) {
-  for (var test of arr) {
-    expect(nmrMetadata.getSpectrumType(test[0])).toBe(test[1]);
-  }
-}
