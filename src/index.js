@@ -1,9 +1,9 @@
-
 import jcampconverter from 'jcampconverter';
 import { NMR } from 'spectra-data';
 
 import { getMetaData } from './getMetaData';
 
+export const fromInfo = getMetaData;
 
 /**
  * Object containing parsed metadata
@@ -25,7 +25,7 @@ import { getMetaData } from './getMetaData';
  */
 
 const defaultOptions = {
-  computeRanges: false
+  computeRanges: false,
 };
 
 const defaultRangesOptions = {
@@ -33,7 +33,7 @@ const defaultRangesOptions = {
   thresholdFactor: 0.85,
   clean: 0.4,
   compile: true,
-  integralType: 'sum'
+  integralType: 'sum',
 };
 
 /**
@@ -50,7 +50,7 @@ export function fromJcamp(jcampData, options) {
   const jcampString = jcampData.toString();
   const parsedJcamp = jcampconverter.convert(jcampString, {
     keepRecordsRegExp: /.*/,
-    withoutXY: true
+    withoutXY: true,
   });
 
   // console.log(parsedJcamp.info);
@@ -66,7 +66,7 @@ export function fromJcamp(jcampData, options) {
     const rangesOptions = Object.assign(
       {},
       defaultRangesOptions,
-      options.ranges
+      options.ranges,
     );
     if (options.removeImpurities && metadata.solvent) {
       rangesOptions.removeImpurity = { solvent: metadata.solvent };
@@ -87,6 +87,4 @@ export function fromJcamp(jcampData, options) {
   return metadata;
 }
 
-
 export { getSpectrumType } from './getSpectrumType';
-
