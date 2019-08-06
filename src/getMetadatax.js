@@ -7,7 +7,7 @@ export function getMetaData(info) {
     nucleus: [],
     isFid: false,
     isFt: false,
-    isComplex: false
+    isComplex: false,
   };
 
   maybeAdd(metadata, 'title', info.TITLE);
@@ -15,7 +15,7 @@ export function getMetaData(info) {
   maybeAdd(
     metadata,
     'pulse',
-    info['.PULSESEQUENCE'] || info['.PULPROG'] || info.$PULPROG
+    info['.PULSESEQUENCE'] || info['.PULPROG'] || info.$PULPROG,
   );
   maybeAdd(metadata, 'experiment', getSpectrumType(metadata, info));
   maybeAdd(metadata, 'temperature', parseFloat(info.$TE || info['.TE']));
@@ -43,6 +43,13 @@ export function getMetaData(info) {
   }
 
   metadata.dimension = metadata.nucleus.length;
+
+  if (info.SYMBOL) {
+    let symbols = info.SYMBOL.split(/[, ]+/);
+    if (symbols.includes('R') && symbols.includes('I')) {
+      metadata.isComplex = true;
+    }
+  }
 
   if (info.$DATE) {
     metadata.date = new Date(info.$DATE * 1000).toISOString();
