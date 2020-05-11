@@ -72,6 +72,8 @@ describe('getMetadata', function () {
     const metadata = fromJcamp(read('test2.jdx'), {
       computeRanges: true,
     });
+
+    expect(metadata.range).toHaveLength(7);
     expect(metadata.type).toBe('NMR SPECTRUM');
     expect(metadata.isFid).toBe(false);
     expect(metadata.isFt).toBe(true);
