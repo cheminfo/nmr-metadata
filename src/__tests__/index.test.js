@@ -1,4 +1,4 @@
-import { fromJcamp, fromInfo } from '..';
+import { fromJcamp, fromInfo, getSpectrumType } from '..';
 
 describe('package', function () {
   it('test functions exists', function () {
