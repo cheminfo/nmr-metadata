@@ -101,17 +101,68 @@ describe('getMetadata', function () {
     });
     expect(metadata.acquisitionMode).toBe(0);
     expect(metadata.range).toHaveLength(4);
-    expect(metadata.range[0]).toHaveProperty('from');
-    expect(metadata.range[0]).toHaveProperty('to');
-    expect(metadata.range[0]).toHaveProperty('integral');
-    expect(metadata.range[0]).toHaveProperty('signal');
-    expect(metadata.range[0].from).toBe(4.15193);
-    expect(metadata.range[0].to).toBe(4.25439);
-    expect(metadata.range[0].integral).toBe(1.99235);
-    expect(metadata.range[0].signal).toHaveLength(1);
-    expect(metadata.range[0].signal[0]).toHaveProperty('delta');
-    expect(metadata.range[0].signal[0]).toHaveProperty('diaID');
-    expect(metadata.range[0].signal[0]).toHaveProperty('multiplicity');
+    expect(metadata).toStrictEqual([
+      {
+        from: 4.15193,
+        to: 4.25439,
+        integral: 1.99235,
+        signal: [
+          {
+            nbAtoms: 0,
+            diaID: [],
+            multiplicity: 'm',
+            kind: '',
+            remark: '',
+            delta: 4.21111,
+          },
+        ],
+      },
+      {
+        from: 3.42359,
+        to: 3.49019,
+        integral: 1.80563,
+        signal: [
+          {
+            nbAtoms: 0,
+            diaID: [],
+            multiplicity: 's',
+            kind: '',
+            remark: '',
+            delta: 3.45689,
+          },
+        ],
+      },
+      {
+        from: 2.24782,
+        to: 2.31955,
+        integral: 2.66827,
+        signal: [
+          {
+            nbAtoms: 0,
+            diaID: [],
+            multiplicity: 's',
+            kind: '',
+            remark: '',
+            delta: 2.28368,
+          },
+        ],
+      },
+      {
+        from: 1.24795,
+        to: 1.35041,
+        integral: 3.0659,
+        signal: [
+          {
+            nbAtoms: 0,
+            diaID: [],
+            multiplicity: 'm',
+            kind: '',
+            remark: '',
+            delta: 1.29514,
+          },
+        ],
+      },
+    ]);
   });
 
   it('should be mestrec', function () {
