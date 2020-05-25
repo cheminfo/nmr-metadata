@@ -1,10 +1,14 @@
-
 import { getSpectrumType } from '../getSpectrumType';
 
 describe('getSpectrumType', function () {
   it('should return empty string for unknown pulse', function () {
-    const tests = [['', ''], ['aaa', ''], [null, ''], ['test', '']];
-    for (var test of tests) {
+    const tests = [
+      ['', ''],
+      ['aaa', ''],
+      [null, ''],
+      ['test', ''],
+    ];
+    for (let test of tests) {
       expect(getSpectrumType(test[0])).toBe(test[1]);
     }
   });
@@ -44,9 +48,9 @@ describe('getSpectrumType', function () {
       ['hxdeptbiph', 'dept'],
 
       ['jmod', 'aptjmod'],
-      ['apt', 'aptjmod']
+      ['apt', 'aptjmod'],
     ];
-    for (var test of tests) {
+    for (let test of tests) {
       expect(getSpectrumType(test[0])).toBe(test[1]);
     }
   });
