@@ -8,7 +8,13 @@ export function getSpectrumType(meta = {}, info = {}) {
   if (typeof meta === 'string') {
     meta = { pulse: meta };
   }
-  let spectyp = (info.$SPECTYP || '').replace(/^<(.*)>$/, '$1').toLowerCase();
+
+  let spectyp;
+  if (Array.isArray(info.$SPECTYP)) {
+    spectyp = (info.$SPECTYP[0] || '').replace(/^<(.*)>$/, '$1').toLowerCase();
+  } else {
+    spectyp = (info.$SPECTYP || '').replace(/^<(.*)>$/, '$1').toLowerCase();
+  }
 
   if (spectyp) return spectyp;
 
