@@ -94,7 +94,7 @@ describe('getMetadata', function () {
     expect(metadata.isComplex).toBe(true);
   });
 
-  it('should compute ranges', function () {
+  it.only('should compute ranges', function () {
     const metadata = fromJcamp(read('ft-data.jdx'), {
       computeRanges: true,
       ranges: { nH: 10 },
