@@ -105,6 +105,9 @@ describe('getMetadata', function () {
     expect(metadata.range[0]).toHaveProperty('to');
     expect(metadata.range[0]).toHaveProperty('integral');
     expect(metadata.range[0]).toHaveProperty('signal');
+    expect(metadata.range[0].from).toBe(4.15193);
+    expect(metadata.range[0].to).toBe(4.25439);
+    expect(metadata.range[0].integral).toBe(1.99235);
     expect(metadata.range[0].signal).toHaveLength(1);
     expect(metadata.range[0].signal[0]).toHaveProperty('delta');
     expect(metadata.range[0].signal[0]).toHaveProperty('diaID');

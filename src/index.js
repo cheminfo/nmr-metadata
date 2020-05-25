@@ -1,4 +1,4 @@
-import jcampconverter from 'jcampconverter';
+import { convert } from 'jcampconverter';
 import { NMR } from 'spectra-data';
 
 import { getMetaData } from './getMetaData';
@@ -48,12 +48,10 @@ export function fromJcamp(jcampData, options) {
   options = Object.assign({}, defaultOptions, options);
 
   const jcampString = jcampData.toString();
-  const parsedJcamp = jcampconverter.convert(jcampString, {
+  const parsedJcamp = convert(jcampString, {
     keepRecordsRegExp: /.*/,
     withoutXY: true,
-  });
-
-  // console.log(parsedJcamp.info);
+  }).flatten[0];
 
   let metadata = getMetaData(parsedJcamp.info);
 
