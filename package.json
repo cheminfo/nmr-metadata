@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "jcampconverter": "^5.0.2",
-    "prettier": "^2.0.5",
-    "spectra-data": "^3.4.11"
+    "nmr-processing": "^0.1.1",
+    "prettier": "^2.0.5"
   }
 }

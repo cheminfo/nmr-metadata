@@ -1,5 +1,5 @@
 import { convert } from 'jcampconverter';
-import { NMR } from 'spectra-data';
+import { xyAutoRangesPicking } from 'nmr-processing';
 
 import { getMetaData } from './getMetaData';
 
@@ -50,7 +50,7 @@ export function fromJcamp(jcampData, options) {
   const jcampString = jcampData.toString();
   const parsedJcamp = convert(jcampString, {
     keepRecordsRegExp: /.*/,
-    withoutXY: true,
+    withoutXY: false,
   }).flatten[0];
 
   let metadata = getMetaData(parsedJcamp.info);
@@ -69,16 +69,8 @@ export function fromJcamp(jcampData, options) {
     if (options.removeImpurities && metadata.solvent) {
       rangesOptions.removeImpurity = { solvent: metadata.solvent };
     }
-    const spectrum = NMR.fromJcamp(jcampString);
-    const ranges = spectrum.getRanges(rangesOptions);
-    ranges.forEach(function (range) {
-      // todo remove when there is an option to avoid that
-      delete range._highlight;
-      delete range.signalID;
-      range.signal.forEach(function (signal) {
-        delete signal.peak;
-      });
-    });
+
+    const ranges = xyAutoRangesPicking(parsedJcamp.spectra[0].data);
     metadata.range = ranges;
   }
 
