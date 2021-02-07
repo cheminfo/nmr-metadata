@@ -1,7 +1,7 @@
 import { getNucleusFrom2DExperiment } from './getNucleusFrom2DExperiment';
 import { getSpectrumType } from './getSpectrumType';
 
-export function getMetaData(info) {
+export function getMetaData(info, meta) {
   const metadata = {
     dimension: 1,
     nucleus: [],
@@ -15,17 +15,17 @@ export function getMetaData(info) {
   maybeAdd(
     metadata,
     'pulse',
-    info['.PULSESEQUENCE'] || info['.PULPROG'] || info.$PULPROG,
+    info['.PULSESEQUENCE'] || info['.PULPROG'] || meta.PULPROG,
   );
   maybeAdd(metadata, 'experiment', getSpectrumType(metadata, info));
-  maybeAdd(metadata, 'temperature', parseFloat(info.$TE || info['.TE']));
+  maybeAdd(metadata, 'temperature', parseFloat(meta.TE || info['.TE']));
   maybeAdd(metadata, 'frequency', parseFloat(info['.OBSERVEFREQUENCY']));
   maybeAdd(metadata, 'type', info.DATATYPE);
-  maybeAdd(metadata, 'probe', info.$PROBHD);
-  if (info.$FNTYPE !== undefined) {
-    maybeAdd(metadata, 'acquisitionMode', parseInt(info.$FNTYPE));
+  maybeAdd(metadata, 'probe', meta.PROBHD);
+  if (meta.FNTYPE !== undefined) {
+    maybeAdd(metadata, 'acquisitionMode', parseInt(meta.FNTYPE));
   }
-  maybeAdd(metadata, 'expno', parseInt(info.$EXPNO));
+  maybeAdd(metadata, 'expno', parseInt(meta.EXPNO));
   if (metadata.type) {
     if (metadata.type.toUpperCase().indexOf('FID') >= 0) {
       metadata.isFid = true;
@@ -51,8 +51,8 @@ export function getMetaData(info) {
     }
   }
 
-  if (info.$DATE) {
-    metadata.date = new Date(info.$DATE * 1000).toISOString();
+  if (meta.DATE) {
+    metadata.date = new Date(meta.DATE * 1000).toISOString();
   }
   return metadata;
 }

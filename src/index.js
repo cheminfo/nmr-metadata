@@ -44,16 +44,19 @@ const defaultRangesOptions = {
  * @param {number} [options.ranges] - options for ranges computation
  * @return {NMRMetadata} metadata
  */
-export function fromJcamp(jcampData, options) {
-  options = Object.assign({}, defaultOptions, options);
+export function fromJcamp(jcampData, options = {}) {
+  options = {
+    ...defaultOptions, ...options
+  };
 
   const jcampString = jcampData.toString();
   const parsedJcamp = convert(jcampString, {
     keepRecordsRegExp: /.*/,
+    canonicMetadataLabels: true,
     withoutXY: false,
   }).flatten[0];
 
-  let metadata = getMetaData(parsedJcamp.info);
+  let metadata = getMetaData(parsedJcamp.info, parsedJcamp.meta);
 
   if (
     options.computeRanges &&
@@ -61,16 +64,13 @@ export function fromJcamp(jcampData, options) {
     metadata.dimension === 1 &&
     metadata.nucleus[0] === '1H'
   ) {
-    const rangesOptions = Object.assign(
-      {},
-      defaultRangesOptions,
-      options.ranges,
-    );
+    const rangesOptions = { ...defaultRangesOptions, ...options.ranges };
+
     if (options.removeImpurities && metadata.solvent) {
       rangesOptions.removeImpurity = { solvent: metadata.solvent };
     }
 
-    const ranges = xyAutoRangesPicking(parsedJcamp.spectra[0].data);
+    const ranges = xyAutoRangesPicking(parsedJcamp.spectra[0].data, { peakPicking: options.ranges });
     metadata.range = ranges;
   }
 
