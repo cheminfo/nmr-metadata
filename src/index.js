@@ -29,11 +29,14 @@ const defaultOptions = {
 };
 
 const defaultRangesOptions = {
-  nH: 100,
-  thresholdFactor: 0.85,
+  integrationSum: 100,
   clean: 0.4,
   compile: true,
   integralType: 'sum',
+};
+
+const defaultPeaksOptions = {
+  thresholdFactor: 0.85,
 };
 
 /**
@@ -46,7 +49,8 @@ const defaultRangesOptions = {
  */
 export function fromJcamp(jcampData, options = {}) {
   options = {
-    ...defaultOptions, ...options
+    ...defaultOptions,
+    ...options,
   };
 
   const jcampString = jcampData.toString();
@@ -64,14 +68,20 @@ export function fromJcamp(jcampData, options = {}) {
     metadata.dimension === 1 &&
     metadata.nucleus[0] === '1H'
   ) {
-    const rangesOptions = { ...defaultRangesOptions, ...options.ranges };
+    let { ranges = {}, impurities = {}, peakPicking = {} } = options;
 
-    if (options.removeImpurities && metadata.solvent) {
-      rangesOptions.removeImpurity = { solvent: metadata.solvent };
+    const rangesOptions = { ...defaultRangesOptions, ...ranges };
+    const peaksOptions = { ...defaultPeaksOptions, ...peakPicking };
+
+    if (metadata.solvent) {
+      impurities.solvent = metadata.solvent;
     }
 
-    const ranges = xyAutoRangesPicking(parsedJcamp.spectra[0].data, { peakPicking: options.ranges });
-    metadata.range = ranges;
+    metadata.range = xyAutoRangesPicking(parsedJcamp.spectra[0].data, {
+      impurities,
+      ranges: rangesOptions,
+      peakPicking: peaksOptions,
+    });
   }
 
   return metadata;
