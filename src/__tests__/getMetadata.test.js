@@ -72,8 +72,6 @@ describe('getMetadata', function () {
     const metadata = fromJcamp(read('test2.jdx'), {
       computeRanges: true,
     });
-    console.log(metadata.range);
-    return;
     expect(metadata.range).toHaveLength(7);
     expect(metadata.type).toBe('NMR SPECTRUM');
     expect(metadata.isFid).toBe(false);
@@ -98,11 +96,13 @@ describe('getMetadata', function () {
   it.only('should compute ranges', function () {
     const metadata = fromJcamp(read('ft-data.jdx'), {
       computeRanges: true,
-      ranges: { nH: 10 },
+      ranges: { integrationSum: 10 },
     });
+    console.log(metadata.range);
+-   return;
     expect(metadata.acquisitionMode).toBe(0);
     expect(metadata.range).toHaveLength(4);
-    expect(metadata).toStrictEqual([
+    expect(metadata.range.sort((a, b) => b.from - a.from)).toStrictEqual([
       {
         from: 4.15193,
         to: 4.25439,
