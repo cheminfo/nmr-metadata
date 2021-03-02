@@ -1,3 +1,11 @@
+## [3.0.0](https://github.com/cheminfo/nmr-metadata/compare/v2.4.0...v3.0.0) (2021-03-02)
+
+
+### Bug Fixes
+
+* after update dependencies ([1e27576](https://github.com/cheminfo/nmr-metadata/commit/1e27576726077533976add748bc356960171297b))
+* update test cases ([a98235a](https://github.com/cheminfo/nmr-metadata/commit/a98235a6671cdcf4004c5e9040262341678e110b))
+
 # [2.2.0](https://github.com/cheminfo/nmr-metadata/compare/v2.1.1...v2.2.0) (2018-11-23)
 
 
