@@ -2,6 +2,11 @@ import { readFileSync } from 'fs';
 
 import { fromJcamp } from '..';
 
+
+import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to';
+expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
+
+
 function read(file) {
   return readFileSync(`${__dirname}/data/${file}`, 'utf8');
 }
@@ -72,12 +77,12 @@ describe('getMetadata', function () {
     const metadata = fromJcamp(read('test2.jdx'), {
       computeRanges: true,
     });
-    expect(metadata.range).toHaveLength(7);
+    expect(metadata.range).toHaveLength(4);
     expect(metadata.type).toBe('NMR SPECTRUM');
     expect(metadata.isFid).toBe(false);
     expect(metadata.isFt).toBe(true);
     expect(metadata.expno).toBe(1);
-    expect(metadata.experiment).toBe('proton');
+    expect(metadata.experiment).toBe('1d');
   });
 
   it('should parse bruker-nmr-ft-RI.jdx without infinite loop', function () {
@@ -93,77 +98,31 @@ describe('getMetadata', function () {
     expect(metadata.isComplex).toBe(true);
   });
 
-  it.only('should compute ranges', function () {
+  it('should compute ranges', function () {
     const metadata = fromJcamp(read('ft-data.jdx'), {
       computeRanges: true,
       ranges: { integrationSum: 10 },
     });
-    console.log(metadata.range);
--   return;
     expect(metadata.acquisitionMode).toBe(0);
     expect(metadata.range).toHaveLength(4);
-    expect(metadata.range.sort((a, b) => b.from - a.from)).toStrictEqual([
-      {
-        from: 4.15193,
-        to: 4.25439,
-        integral: 1.99235,
-        signal: [
-          {
-            nbAtoms: 0,
-            diaID: [],
-            multiplicity: 'm',
-            kind: '',
-            remark: '',
-            delta: 4.21111,
-          },
-        ],
-      },
-      {
-        from: 3.42359,
-        to: 3.49019,
-        integral: 1.80563,
-        signal: [
-          {
-            nbAtoms: 0,
-            diaID: [],
-            multiplicity: 's',
-            kind: '',
-            remark: '',
-            delta: 3.45689,
-          },
-        ],
-      },
-      {
-        from: 2.24782,
-        to: 2.31955,
-        integral: 2.66827,
-        signal: [
-          {
-            nbAtoms: 0,
-            diaID: [],
-            multiplicity: 's',
-            kind: '',
-            remark: '',
-            delta: 2.28368,
-          },
-        ],
-      },
-      {
-        from: 1.24795,
-        to: 1.35041,
-        integral: 3.0659,
-        signal: [
-          {
-            nbAtoms: 0,
-            diaID: [],
-            multiplicity: 'm',
-            kind: '',
-            remark: '',
-            delta: 1.29514,
-          },
-        ],
-      },
-    ]);
+    const ranges = metadata.range.sort((a, b) => b.from - a.from);
+    expect(ranges[0]).toBeDeepCloseTo({
+      from: 4.149999428080906,
+      to: 4.244847614555428,
+      integral: 2.094606290082905,
+      signal: [
+        { kind: 'signal', multiplicity: 's', delta: 4.185861563956111 },
+        {
+          kind: 'signal',
+          multiplicity: 'dt',
+          j: [
+            { coupling: 7.172427175040866, multiplicity: 'd' },
+            { coupling: 1.6519511785545546, multiplicity: 't' },
+          ],
+          delta: 4.211008831980948,
+        },
+      ],
+    });
   });
 
   it('should be mestrec', function () {
