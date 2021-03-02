@@ -1,11 +1,10 @@
 import { readFileSync } from 'fs';
 
+import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to';
+
 import { fromJcamp } from '..';
 
-
-import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to';
 expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
-
 
 function read(file) {
   return readFileSync(`${__dirname}/data/${file}`, 'utf8');
