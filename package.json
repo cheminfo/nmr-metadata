@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "jcampconverter": "^7.6.6",
-    "nmr-processing": "^0.7.0",
+    "nmr-processing": "^0.9.0",
     "prettier": "^2.2.1"
   }
 }
