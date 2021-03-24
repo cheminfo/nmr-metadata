@@ -105,23 +105,26 @@ describe('getMetadata', function () {
     expect(metadata.acquisitionMode).toBe(0);
     expect(metadata.range).toHaveLength(4);
     const ranges = metadata.range.sort((a, b) => b.from - a.from);
-    expect(ranges[0]).toBeDeepCloseTo({
-      from: 4.149999428080906,
-      to: 4.244847614555428,
-      integral: 2.094606290082905,
-      signal: [
-        { kind: 'signal', multiplicity: 's', delta: 4.185861563956111 },
-        {
-          kind: 'signal',
-          multiplicity: 'dt',
-          j: [
-            { coupling: 7.172427175040866, multiplicity: 'd' },
-            { coupling: 1.6519511785545546, multiplicity: 't' },
-          ],
-          delta: 4.211008831980948,
-        },
-      ],
-    });
+    expect(ranges[0]).toBeDeepCloseTo(
+      {
+        from: 4.149999428080906,
+        to: 4.244847614555428,
+        integral: 2.094606290082905,
+        signal: [
+          { kind: 'signal', multiplicity: 's', delta: 4.185861563956111 },
+          {
+            kind: 'signal',
+            multiplicity: 'dt',
+            j: [
+              { coupling: 7.172427175040866, multiplicity: 'd' },
+              { coupling: 1.6519511785545546, multiplicity: 't' },
+            ],
+            delta: 4.211008831980948,
+          },
+        ],
+      },
+      2,
+    );
   });
 
   it('should be mestrec', function () {
