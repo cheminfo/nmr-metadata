@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.1](https://www.github.com/cheminfo/nmr-metadata/compare/v3.0.0...v3.0.1) (2021-03-24)
+
+
+### Bug Fixes
+
+* prettier dev dependency ([6a9eed8](https://www.github.com/cheminfo/nmr-metadata/commit/6a9eed852e43823aa1a040c2dcf77ea85e8526a7))
+
 ## [3.0.0](https://github.com/cheminfo/nmr-metadata/compare/v2.4.0...v3.0.0) (2021-03-02)
 
 
@@ -64,6 +71,3 @@
 ### Features
 
 * initial version ([28d0ff3](https://github.com/cheminfo/nmr-metadata/commit/28d0ff3))
-
-
-
