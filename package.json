@@ -1,6 +1,6 @@
 {
   "name": "nmr-metadata",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Extract and normalize metadata from NMR spectra",
   "keywords": [],
   "main": "lib/index.js",
