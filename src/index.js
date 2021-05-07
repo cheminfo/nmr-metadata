@@ -53,8 +53,7 @@ export function fromJcamp(jcampData, options = {}) {
     ...options,
   };
 
-  const jcampString = jcampData.toString();
-  const parsedJcamp = convert(jcampString, {
+  const parsedJcamp = convert(jcampData, {
     keepRecordsRegExp: /.*/,
     canonicMetadataLabels: true,
     withoutXY: false,
