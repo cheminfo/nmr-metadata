@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://www.github.com/cheminfo/nmr-metadata/compare/v3.0.1...v3.1.0) (2021-05-07)
+
+
+### Features
+
+* update dependencies and deal correctly with ArrayBuffer ([75ba811](https://www.github.com/cheminfo/nmr-metadata/commit/75ba81126fa533884f76692f73639bfd1262aea4))
+
 ### [3.0.1](https://www.github.com/cheminfo/nmr-metadata/compare/v3.0.0...v3.0.1) (2021-03-24)
 
 
