@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.1.1](https://www.github.com/cheminfo/nmr-metadata/compare/v3.1.0...v3.1.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* remove jcampData.toString ([9a7cf48](https://www.github.com/cheminfo/nmr-metadata/commit/9a7cf4843f3fc1cb8c6734c96b81d1729e75b025))
+
 ## [3.1.0](https://www.github.com/cheminfo/nmr-metadata/compare/v3.0.1...v3.1.0) (2021-05-07)
 
 
