@@ -50,6 +50,24 @@ describe('getMetadata', function () {
     });
   });
 
+  it('should be FT from ArrayBuffer', function () {
+    let jcamp = readFileSync(`${__dirname}/data/ft.dx`);
+    const metadata = fromJcamp(jcamp);
+    expect(metadata).toStrictEqual({
+      dimension: 1,
+      nucleus: ['1H'],
+      isFid: false,
+      isFt: true,
+      isComplex: false,
+      title: '504-63-2',
+      experiment: '',
+      temperature: NaN,
+      frequency: 400.08260052,
+      type: 'NMR SPECTRUM',
+      expno: NaN,
+    });
+  });
+
   it('should be cosy 2d', function () {
     const metadata = fromJcamp(read('bruker-2d-ft-R-cosy.jdx'));
     expect(metadata).toStrictEqual({
