@@ -23,9 +23,9 @@ export function getMetaData(info, meta) {
   maybeAdd(metadata, 'type', info.DATATYPE);
   maybeAdd(metadata, 'probe', meta.PROBHD);
   if (meta.FNTYPE !== undefined) {
-    maybeAdd(metadata, 'acquisitionMode', parseInt(meta.FNTYPE));
+    maybeAdd(metadata, 'acquisitionMode', parseInt(meta.FNTYPE, 10));
   }
-  maybeAdd(metadata, 'expno', parseInt(meta.EXPNO));
+  maybeAdd(metadata, 'expno', parseInt(meta.EXPNO, 10));
   if (metadata.type) {
     if (metadata.type.toUpperCase().indexOf('FID') >= 0) {
       metadata.isFid = true;
