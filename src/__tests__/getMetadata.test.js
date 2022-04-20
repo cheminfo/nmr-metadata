@@ -10,8 +10,8 @@ function read(file) {
   return readFileSync(`${__dirname}/data/${file}`, 'utf8');
 }
 
-describe('getMetadata', function () {
-  it('should be FID', function () {
+describe('getMetadata', () => {
+  it('should be FID', () => {
     const metadata = fromJcamp(read('fid.dx'));
     expect(metadata).toStrictEqual({
       dimension: 1,
@@ -33,7 +33,7 @@ describe('getMetadata', function () {
     });
   });
 
-  it('should be FT', function () {
+  it('should be FT', () => {
     const metadata = fromJcamp(read('ft.dx'));
     expect(metadata).toStrictEqual({
       dimension: 1,
@@ -50,7 +50,7 @@ describe('getMetadata', function () {
     });
   });
 
-  it('should be FT from ArrayBuffer', function () {
+  it('should be FT from ArrayBuffer', () => {
     let jcamp = readFileSync(`${__dirname}/data/ft.dx`);
     const metadata = fromJcamp(jcamp);
     expect(metadata).toStrictEqual({
@@ -68,7 +68,7 @@ describe('getMetadata', function () {
     });
   });
 
-  it('should be cosy 2d', function () {
+  it('should be cosy 2d', () => {
     const metadata = fromJcamp(read('bruker-2d-ft-R-cosy.jdx'));
     expect(metadata).toStrictEqual({
       dimension: 2,
@@ -90,7 +90,7 @@ describe('getMetadata', function () {
     });
   });
 
-  it('should parse test2 without infinite loop', function () {
+  it('should parse test2 without infinite loop', () => {
     const metadata = fromJcamp(read('test2.jdx'), {
       computeRanges: true,
     });
@@ -102,7 +102,7 @@ describe('getMetadata', function () {
     expect(metadata.experiment).toBe('1d');
   });
 
-  it('should parse bruker-nmr-ft-RI.jdx without infinite loop', function () {
+  it('should parse bruker-nmr-ft-RI.jdx without infinite loop', () => {
     const metadata = fromJcamp(read('bruker-1d-ft-RI.jdx'), {
       computeRanges: true,
     });
@@ -115,7 +115,7 @@ describe('getMetadata', function () {
     expect(metadata.isComplex).toBe(true);
   });
 
-  it('should compute ranges', function () {
+  it('should compute ranges', () => {
     const metadata = fromJcamp(read('ft-data.jdx'), {
       computeRanges: true,
       ranges: { integrationSum: 10 },
@@ -145,7 +145,7 @@ describe('getMetadata', function () {
     );
   });
 
-  it('should be mestrec', function () {
+  it('mestrec jcamp', () => {
     const metadata = fromJcamp(read('mestrec.jcamp'));
     expect(metadata).toStrictEqual({
       dimension: 1,
@@ -160,6 +160,25 @@ describe('getMetadata', function () {
       temperature: NaN,
       frequency: 400.1318406,
       type: 'NMRSPECTRUM',
+      expno: NaN,
+    });
+  });
+
+  it('mestrec jdx', () => {
+    const metadata = fromJcamp(read('mestrec.jdx'));
+    expect(metadata).toStrictEqual({
+      dimension: 1,
+      nucleus: ['1H'],
+      isFid: false,
+      isFt: true,
+      isComplex: false,
+      title: '211215 L.S. nylon 5 dDMSO.1.fid',
+      solvent: 'DMSO',
+      pulse: 'zg30',
+      experiment: '1d',
+      temperature: NaN,
+      frequency: 400.13240078,
+      type: 'NMR SPECTRUM',
       expno: NaN,
     });
   });

@@ -36,17 +36,18 @@
     "test-only": "jest"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.14.0",
-    "eslint": "^7.25.0",
-    "eslint-config-cheminfo": "^5.2.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@types/jest": "^27.4.1",
+    "eslint": "^8.13.0",
+    "eslint-config-cheminfo": "^7.3.0",
     "esm": "^3.2.25",
-    "jest": "^26.6.3",
-    "jest-matcher-deep-close-to": "^2.0.1",
-    "prettier": "^2.2.1",
-    "rollup": "^2.47.0"
+    "jest": "^27.5.1",
+    "jest-matcher-deep-close-to": "^3.0.2",
+    "prettier": "^2.6.2",
+    "rollup": "^2.70.2"
   },
   "dependencies": {
-    "jcampconverter": "^8.1.1",
-    "nmr-processing": "^1.2.0"
+    "jcampconverter": "^8.4.0",
+    "nmr-processing": "^7.4.3"
   }
 }

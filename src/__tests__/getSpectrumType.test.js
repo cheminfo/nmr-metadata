@@ -1,7 +1,7 @@
 import { getSpectrumType } from '../getSpectrumType';
 
-describe('getSpectrumType', function () {
-  it('should return empty string for unknown pulse', function () {
+describe('getSpectrumType', () => {
+  it('should return empty string for unknown pulse', () => {
     const tests = [
       ['', ''],
       ['aaa', ''],
@@ -13,7 +13,7 @@ describe('getSpectrumType', function () {
     }
   });
 
-  it('should know about real pulse sequences', function () {
+  it('should know about real pulse sequences', () => {
     const tests = [
       ['zg30', '1d'],
       ['zghfigqn', '1d'],
