@@ -52,7 +52,12 @@ export function getMetaData(info, meta) {
   }
 
   if (meta.DATE) {
-    metadata.date = new Date(meta.DATE * 1000).toISOString();
+    try {
+      metadata.date = new Date(meta.DATE * 1000).toISOString();
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e);
+    }
   }
   return metadata;
 }
