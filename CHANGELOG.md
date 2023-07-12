@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://www.github.com/cheminfo/nmr-metadata/compare/v3.1.1...v3.2.0) (2023-07-12)
+
+
+### Features
+
+* catch error if date can not be parsed ([ab24e45](https://www.github.com/cheminfo/nmr-metadata/commit/ab24e45012f740b1754b65bc3ba5d1f5d7edfe53))
+
 ### [3.1.1](https://www.github.com/cheminfo/nmr-metadata/compare/v3.1.0...v3.1.1) (2021-05-07)
 
 
