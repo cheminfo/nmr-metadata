@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.0](https://github.com/cheminfo/nmr-metadata/compare/v3.1.1...v4.0.0) (2026-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* update code and migrate to type=module
+
+### Features
+
+* catch error if date can not be parsed ([ab24e45](https://github.com/cheminfo/nmr-metadata/commit/ab24e45012f740b1754b65bc3ba5d1f5d7edfe53))
+* update code and migrate to type=module ([afab015](https://github.com/cheminfo/nmr-metadata/commit/afab015a5faa469ea3b5ec64b49eac5524de32e1))
+
 ### [3.1.1](https://www.github.com/cheminfo/nmr-metadata/compare/v3.1.0...v3.1.1) (2021-05-07)
 
 
