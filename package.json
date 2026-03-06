@@ -2,13 +2,15 @@
   "name": "nmr-metadata",
   "version": "3.1.1",
   "description": "Extract and normalize metadata from NMR spectra",
-  "keywords": [],
-  "main": "lib/index.js",
-  "module": "src/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
   "files": [
     "lib",
     "src"
   ],
+  "keywords": [],
   "author": "Michaël Zasso",
   "repository": "cheminfo/nmr-metadata",
   "bugs": {
@@ -16,37 +18,32 @@
   },
   "homepage": "https://github.com/cheminfo/nmr-metadata",
   "license": "MIT",
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "semi": true,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "all"
-  },
   "scripts": {
+    "check-types": "tsc --noEmit",
+    "clean": "rimraf lib",
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
-    "compile": "rollup -c",
-    "prepublishOnly": "npm run compile",
-    "test": "npm run test-coverage && npm run eslint",
-    "test-coverage": "jest --coverage",
-    "test-only": "jest"
-  },
-  "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.14.0",
-    "eslint": "^7.25.0",
-    "eslint-config-cheminfo": "^5.2.3",
-    "esm": "^3.2.25",
-    "jest": "^26.6.3",
-    "jest-matcher-deep-close-to": "^2.0.1",
-    "prettier": "^2.2.1",
-    "rollup": "^2.47.0"
+    "prepack": "npm run tsc",
+    "prettier": "prettier --check src",
+    "prettier-write": "prettier --write src",
+    "test": "npm run test-only && npm run check-types && npm run eslint && npm run prettier",
+    "test-only": "vitest run --coverage",
+    "tsc": "npm run clean && npm run tsc-build",
+    "tsc-build": "tsc --project tsconfig.build.json"
   },
   "dependencies": {
-    "jcampconverter": "^8.1.1",
-    "nmr-processing": "^1.2.0"
+    "jcampconverter": "^12.2.1",
+    "nmr-processing": "^22.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@zakodium/tsconfig": "^1.0.2",
+    "eslint": "^9.24.0",
+    "eslint-config-cheminfo-typescript": "^21.1.0",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.1.3",
+    "typescript": "^5.8.3",
+    "vitest": "^4.0.18"
   }
 }

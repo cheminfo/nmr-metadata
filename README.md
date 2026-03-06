@@ -19,7 +19,7 @@ Extract and normalize metadata from NMR spectra
 [npm-url]: https://npmjs.org/package/nmr-metadata
 [codecov-image]: https://img.shields.io/codecov/c/github/cheminfo/nmr-metadata.svg
 [codecov-url]: https://codecov.io/gh/cheminfo/nmr-metadata
-[ci-image]: https://github.com/cheminfo/nmr-metadata/workflows/Node.js%20CI/badge.svg?branch=master
+[ci-image]: https://github.com/cheminfo/nmr-metadata/workflows/Node.js%20CI/badge.svg?branch=main
 [ci-url]: https://github.com/cheminfo/nmr-metadata/actions?query=workflow%3A%22Node.js+CI%22
 [download-image]: https://img.shields.io/npm/dm/nmr-metadata.svg
 [download-url]: https://npmjs.org/package/nmr-metadata
